@@ -6,7 +6,8 @@ const menuItems = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Projects", href: "/projects" },
-  { label: "With SSR", href:"/with-ssr" }
+  { label: "With SSR", href: "/with-ssr" },
+  { label: "Custom Drag", href:"/custom-drag" }
 ]
 
 export default function MainNav() {
