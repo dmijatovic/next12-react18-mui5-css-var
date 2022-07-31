@@ -1,22 +1,17 @@
 import type { NextPage } from 'next';
-import Link from 'next/link'
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
-
-import ProTip from '../components/ProTip';
-import Copyright from '../components/Copyright';
 import Button from '@mui/material/Button';
+import PageContent from '~/components/layout/PageContent';
 
 const Home: NextPage = () => {
   console.log("Home page...frontend")
   return (
-    <Container
-      maxWidth="lg"
+    <PageContent
       sx={{
-        minHeight:'100vh',
-        backgroundColor:'var(--rsd-app-test,#fff)'
+        flex:1
       }}
     >
       <Box
@@ -74,7 +69,7 @@ const Home: NextPage = () => {
           Secondary button
         </Button>
       </Box>
-    </Container>
+    </PageContent>
   );
 };
 

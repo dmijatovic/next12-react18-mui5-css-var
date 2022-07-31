@@ -27,6 +27,6 @@
       "~/utils/*": ["utils/*"],
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/layout/Page.Contenttsx"],
   "exclude": ["node_modules"]
 }

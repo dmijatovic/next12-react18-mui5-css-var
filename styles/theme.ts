@@ -3,14 +3,9 @@ import { Palette, Theme } from '@mui/material';
 import settings from './settings'
 
 
-function addToObject(obj:any, key:string, value:any) {
-  return obj[key]=value
-}
-
-
 export function traverseObject(palette: any, parent?:string) {
   const keys = Object.keys(palette)
-  let vars = {}
+  let vars:any = {}
 
   keys.forEach(key => {
     const item = palette[key]
@@ -23,7 +18,8 @@ export function traverseObject(palette: any, parent?:string) {
           id += `-${parent}`
         }
         id += `-${key}`
-        addToObject(vars, id, item)
+        // addToObject(vars, id, item)
+        vars[id]=item
         break;
       case "object":
         const children = traverseObject(item, key)
@@ -37,9 +33,7 @@ export function traverseObject(palette: any, parent?:string) {
         // skip thisone
     }
   })
-
   return vars
-
 }
 
 
@@ -49,14 +43,6 @@ export function getCssVarsFromTheme(theme: Theme) {
   return {
     ':root': vars
   }
-  // {
-  //   ':root': {
-  //     '--rsd-primary-test': 'red',
-  //     '--rsd-secondary-test': 'green',
-  //     '--rsd-accent-test': 'blue',
-  //     '--rsd-accent-main': 'darkblue'
-  //   }
-  // }
 }
 
 export function muiTheme(mode: 'light'|'dark') {
@@ -78,4 +64,36 @@ export function muiTheme(mode: 'light'|'dark') {
   });
 
   return theme
+}
+
+export function applyCssVarsToPallete(palette:any,parent?:string) {
+  const keys = Object.keys(palette)
+  let vars: any = {}
+
+  keys.forEach(key => {
+    // debugger
+    let item = palette[key]
+    switch (typeof item) {
+      case "string":
+      case "number":
+        // debugger
+        let id = '--rsd'
+        if (parent) {
+          id += `-${parent}`
+        }
+        id += `-${key}`
+        // addToObject(vars, id, item)
+        palette[key] = `var(${id},${item})`
+        // vars[key] = `var(${id},${item})`
+        break;
+      case "object":
+        palette[key] = applyCssVarsToPallete(item, key)
+        break;
+      case "function":
+      default:
+      // skip thisone
+    }
+  })
+  debugger
+  return palette
 }

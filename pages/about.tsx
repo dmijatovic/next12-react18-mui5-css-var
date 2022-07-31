@@ -7,11 +7,16 @@ import Button from '@mui/material/Button';
 import Link from '../components/Link';
 import ProTip from '../components/ProTip';
 import Copyright from '../components/Copyright';
+import PageContent from '~/components/layout/PageContent';
 
 const About: NextPage = () => {
   console.log("About page...frontend")
   return (
-    <Container maxWidth="lg">
+    <PageContent
+      sx={{
+        flex:1
+      }}
+    >
       <Box
         sx={{
           my: 4,
@@ -32,7 +37,7 @@ const About: NextPage = () => {
         <ProTip />
         <Copyright />
       </Box>
-    </Container>
+    </PageContent>
   );
 };
 

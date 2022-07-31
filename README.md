@@ -1,5 +1,15 @@
 # Next.js with TypeScript example
 
+This is example uses the latest version. At the time of testing latest version were:
+
+- Next v12.2.3
+- React 18.2.0
+- MUI 5.9.2
+- emotion/react 11.9.3
+
+This is test for using css variables for theming with mui.
+For swithing between themes we would like to use css variables based on data meta prop on the body.
+
 ## How to use
 
 Download the example [or clone the repo](https://github.com/mui/material-ui):

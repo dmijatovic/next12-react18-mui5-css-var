@@ -16,6 +16,7 @@ import Box from '@mui/material/Box'
 import {app} from '../config/app'
 import {rowsPerPageOptions} from '../config/pagination'
 import Searchbox from '../components/form/Searchbox'
+import PageContent from '~/components/layout/PageContent'
 
 const pageTitle = `Projects | ${app.title}`
 
@@ -51,18 +52,18 @@ export default function ProjectsIndexPage({count,page,rows,projects=[]}:
       <Head>
         <title>{pageTitle}</title>
       </Head>
-      <Box
-        component="article"
+      <PageContent
         sx={{
-          margin:'auto',
-          padding:'3rem'
+          flex:1
         }}
       >
         <Box
           component="header"
           sx={{
             display: 'flex',
-            justifyContent:'space-between'
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            padding:'2rem 0rem'
           }}
         >
           <Typography component="h1">
@@ -96,7 +97,7 @@ export default function ProjectsIndexPage({count,page,rows,projects=[]}:
         <Box>
           Nothing to see here ...
         </Box>
-      </Box>
+      </PageContent>
     </>
   )
 }

@@ -69,7 +69,7 @@ MyDocument.getInitialProps = async (ctx) => {
         },
     });
 
-  console.group("MyDocument.getInitialProps")
+  // console.group("MyDocument.getInitialProps")
 
   const initialProps = await Document.getInitialProps(ctx);
   // This is important. It prevents Emotion to render invalid HTML.
@@ -99,7 +99,7 @@ MyDocument.getInitialProps = async (ctx) => {
   });
 
 
-  console.log("pathname...", ctx.pathname)
+  // console.log("pathname...", ctx.pathname)
   // console.log("initialProps...", initialProps)
   // console.log("emotionStyleTags...", emotionStyleTags)
   console.groupEnd()
