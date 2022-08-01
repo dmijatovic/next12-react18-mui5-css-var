@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState,DragEvent } from 'react';
 import List from '@mui/material/List';
 import DragableItem from './DragableItem'
 
@@ -14,8 +14,10 @@ export default function DragList() {
   function swapItems() {
     if (
       source !== target &&
-      source !== null
-    ){
+      source !== null &&
+      target !== null
+    ) {
+      // e.preventDefault()
       console.log("swapItems...", source,target)
       const newList = list.map((item,pos) => {
         if (pos === source) {
@@ -35,7 +37,9 @@ export default function DragList() {
   }
 
   return (
-    <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+    <List
+      sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
+    >
       {list.map((item,pos) => {
         return (
           <DragableItem
@@ -44,9 +48,9 @@ export default function DragList() {
             primary={item.primary}
             secondary={item.secondary}
             target={target}
-            swapItems={swapItems}
             setDragSource={setSource}
             setDragTarget={setTarget}
+            swapItems={swapItems}
           />
         )
       })}
