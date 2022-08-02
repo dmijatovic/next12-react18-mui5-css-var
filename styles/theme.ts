@@ -38,7 +38,7 @@ export function traverseObject(palette: any, parent?:string) {
 
 
 export function getCssVarsFromTheme(theme: Theme) {
-  console.log("getCssVarsFromTheme.theme...", theme)
+  // console.log("getCssVarsFromTheme.theme...", theme)
   const vars = traverseObject(theme.palette)
   return {
     ':root': vars

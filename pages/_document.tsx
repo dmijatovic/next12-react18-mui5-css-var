@@ -87,7 +87,7 @@ MyDocument.getInitialProps = async (ctx) => {
   // })
 
   const emotionStyleTags = emotionStyles.styles.map((style) => {
-    console.log("emotionStyles.styles.style...", style)
+    // console.log("emotionStyles.styles.style...", style)
     return (
       <style
         data-emotion={`${style.key} ${style.ids.join(' ')}`}
