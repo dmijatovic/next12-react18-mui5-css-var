@@ -10,6 +10,20 @@ This is example uses the latest version. At the time of testing latest version w
 This is test for using css variables for theming with mui.
 For swithing between themes we would like to use css variables based on data meta prop on the body.
 
+## DND kit test
+
+Testing new DND react lib called [dnd-kit](https://dndkit.com/)
+The implementation is fairly easy and the tool is quite powerfull. But this library has hydration error when used in SSR mode.
+To solve this the DndContext requires to have id signed, see https://github.com/clauderic/dnd-kit/issues/285
+
+### Dependencies
+
+```bash
+# install dependencies
+npm i @dnd-kit/core @dnd-kit/sortable @dnd-kit/modifiers
+
+```
+
 ## How to use
 
 Download the example [or clone the repo](https://github.com/mui/material-ui):
